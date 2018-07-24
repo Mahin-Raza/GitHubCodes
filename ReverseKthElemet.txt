@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	int t,k,n;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    int a[n];
+	    for(int i=0;i<n;i++)
+	    cin>>a[i];
+	    cin>>k;
+	    for(int i=0;i<n;i=i+k)
+	    {
+	        if(i+k>n)
+	        {
+	            int last=n%k;
+	            reverse(a+i,a+i+last);
+	        }
+	        else
+	        reverse(a+i,a+i+k);
+	    }
+	     for(int i=0;i<n;i++)
+	    cout<<a[i]<<" ";
+	    cout<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,28 @@
+                                        
+1.Given an array containing both negative and positive integers. Find the contiguous sub-array with maximum sum.
+ #include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	int t;
+	
+cin>>t;
+
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int a[n];
+	    for(int i=0;i<n;i++)
+	    cin>>a[i];
+	    int maxs=a[0],cr=a[0];
+	    for(int i=1;i<n;i++)
+	        {
+	        cr=max(a[i],cr+a[i]);
+	        maxs=max(maxs,cr);
+	        }
+	        cout<<maxs<<endl;
+	   
+	}
+	return 0;
+}
