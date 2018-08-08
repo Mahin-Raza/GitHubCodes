@@ -1,0 +1,17 @@
+int detectloop(Node *list)
+{
+   Node *small=list;
+   Node *big=list;
+   
+   if(list==NULL || list->next==NULL)
+   return 0;
+   
+   while(big && big->next)
+   {
+       big=big->next->next;
+       small=small->next;
+       if(big==small)
+       return 1;
+   }
+   return 0;
+}

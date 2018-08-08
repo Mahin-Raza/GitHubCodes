@@ -1,0 +1,19 @@
+void removeTheLoop(Node *node)
+{
+    Node *big=node;
+    Node *small=node;
+    
+    big=big->next->next;
+    small=small->next->next;
+    
+    while(big && big->next)
+    {
+        if(big==small)
+        {
+            big->next=NULL;
+            break;
+        }
+        big=big->next->next;
+        small=small->next;
+    }
+}

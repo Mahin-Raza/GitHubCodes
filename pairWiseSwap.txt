@@ -1,0 +1,17 @@
+void swap(int *a,int *b)
+{
+    int t= *a;
+    *a=*b;
+    *b=t;
+}
+
+void pairWiseSwap(struct node *head)
+{
+  node *temp=head;
+  while(temp!=NULL && temp->next!=NULL)
+  {
+      swap(&temp->data,&temp->next->data);
+      temp=temp->next->next;
+  }
+  return;
+}
