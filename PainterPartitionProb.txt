@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int reqpf(int a[],int n,int ml)
+{
+    int tot=0,nop=1;
+    
+    for(int i=0;i<n;i++)
+    {
+        tot+=a[i];
+        if(tot>ml)
+        {
+            nop++;
+            tot=a[i];
+        }
+    }
+    return nop;
+}
+
+int mintime(int a[],int n,int k)
+{
+    int lo=*max_element(a,a+n);
+    int ho=accumulate(a,a+n,0);
+    
+    while(lo<ho)
+    {
+        int mid=lo+(ho-lo)/2;
+        int reqp=reqpf(a,n,mid);
+        
+        if(reqp<=k)
+        ho=mid;
+        else
+        lo=mid+1;
+    }
+    return lo;
+}
+
+int main()
+{
+  
+        int n,k;
+        cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++)
+        cin>>a[i];
+        cin>>k;
+        cout<<mintime(a,n,k)<<endl;
+    
+  
+    return 0;
+}

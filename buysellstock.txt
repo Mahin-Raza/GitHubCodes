@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int main()
+ {
+int t;
+cin>>t;
+while(t--)
+{
+    int n,flag=0;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)
+    cin>>a[i];
+    
+    for(int i=0;i<n-1;i++)
+    {
+       if(a[i+1]>a[i])
+       {   
+           flag=1;
+           int f=i;
+           while(++i<n-1 && a[i+1]>a[i]){}
+           cout<<"("<<f<<" "<<i<<") ";
+       }
+    }
+    if(flag!=1)
+    cout<<"No Profit";
+    cout<<endl;
+}
+	return 0;
+}
