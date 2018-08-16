@@ -1,0 +1,31 @@
+Node*  addTwoLists(Node* first, Node* second){
+  int q=0,res=0;
+  
+  Node *head3=NULL;
+  Node *third,*temp=NULL;
+  
+  
+  while(first!=NULL || second!=NULL)
+  {
+      res=q+(first? first->data:0)+(second? second->data:0);
+      q=res/10;
+      res=res%10;
+      
+      temp=newNode(res);
+      
+      if(head3==NULL)
+      head3=temp;
+      else
+      third->next=temp;
+      
+      third=temp;
+      
+      if(first) first=first->next;
+      if(second) second=second->next;
+  }
+  if(q>0)
+  third->next=newNode(q);
+  
+  return head3;
+  
+}
