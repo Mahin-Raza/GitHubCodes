@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+
+int egg(int n,int k)
+{
+    int e[n+1][k+1];
+    int res,i,j;
+    
+    for(i=1;i<=n;i++)
+    {
+        e[i][0]=0;
+        e[i][1]=1;
+    }
+    
+    for(i=1;i<=k;i++)
+    {
+        e[1][i]=i;
+    }
+    
+    for(i=2;i<=n;i++)
+    {
+        for(j=2;j<=k;j++)
+        {
+            e[i][j]=9999;
+            for(int x=1;x<=j;x++)
+            {
+            res=1+max(e[i-1][x-1],e[i][j-x]);
+            if(res<e[i][j])
+            e[i][j]=res;
+            }
+        }
+    }
+    return e[n][k];
+}
+
+int main()
+ {
+int t;
+cin>>t;
+while(t--)
+{
+    int n,k;
+    cin>>n>>k;
+    cout<<egg(n,k)<<endl;
+}
+
+	//code
+	return 0;
+}
