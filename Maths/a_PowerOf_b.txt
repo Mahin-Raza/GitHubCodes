@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int power(int a,long long int b)
+{
+   int temp=log(b)/log(a);
+   if(pow(a,temp)==b)
+    return 1;
+    else
+    return 0;
+}
+
+int main()
+ {
+int t;
+cin>>t;
+while(t--)
+{
+    int a;
+    long long b;
+    cin>>a>>b;
+    cout<<power(a,b)<<endl;
+}
+	return 0;
+}
